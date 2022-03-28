@@ -60,19 +60,24 @@ app.get("/posts/:testing", function(req, res) {
 
   const requestedTitle = _.lowerCase(req.params.testing);
 
+
  posts.forEach(function(post) {
    const storedTitle = _.lowerCase(post.title);
 
    if (requestedTitle === storedTitle) {
-    console.log("Match found!");
-  } else {
-    console.log("Not a match.");
-  }
+    
+    res.render("post", {title: post.title, content: post.content});
+
+  } 
 
  });
 
-
 });
+
+app.get("/post", function(req, res) {
+ res.render("post", {title: post.title, content: post.content});
+})
+
 
 app.listen(3000, function() {
   console.log("Server started on port 3000");

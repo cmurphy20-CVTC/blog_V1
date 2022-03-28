@@ -8,9 +8,9 @@
 
     <div>
 			<h1><%= newPost.title %></h1>
-
-    	<p><%= newPost.content %></p>
-   
+        
+            <p><%= newPost.content.substring(0, 100) + " ..."%> <a href = "/posts/<%= newPost.title %>">Read More</a></p>   
+               
     </div>
 
 <% }) %>
